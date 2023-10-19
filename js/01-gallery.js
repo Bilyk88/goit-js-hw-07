@@ -14,13 +14,14 @@ const markup = galleryItems.map(({preview, original, description}) => `<li class
     />
   </a>
 </li>`).join('');
- const instance = basicLightbox.create(`
-    <img src="evt.target.dataset.source" width="800" height="600">
-`)
+
 
 
 galleryList.insertAdjacentHTML('beforeend', markup);
 
+ const instance = basicLightbox.create(`
+    <img src="evt.target.dataset.source" width="800" height="600">
+`)
 
 galleryList.addEventListener('click', onClick);
 
@@ -32,11 +33,11 @@ function onClick(evt) {
     }
     // console.log(evt.target.dataset.source);
     console.dir(evt.target.src);
-    const instance = basicLightbox.create(`
-    <img src="evt.target.src" width="800" height="600">
-`)
+//     const instance = basicLightbox.create(`
+//     <img src="evt.target.src" width="800" height="600">
+// `)
     
-   instance.show();
+//    instance.show();
    
  
 }
