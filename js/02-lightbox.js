@@ -14,12 +14,3 @@ galleryList.insertAdjacentHTML('beforeend', markup);
 
 new SimpleLightbox('.gallery__item a', { captionsData: "alt", captionDelay: 250 });
 
-galleryList.addEventListener('click', onClick);
-
-
-function onClick(evt) {
-    evt.preventDefault();
-    if (!evt.target.classList.contains('gallery__image')) {
-        return;
-    }
-}
