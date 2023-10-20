@@ -45,7 +45,7 @@ function closeModal(evt) {
   
     if (evt.code === 'Escape') {
    
-        instance.close();
+      instance.close();
 
     }
 
