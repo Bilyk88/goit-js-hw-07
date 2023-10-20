@@ -24,18 +24,23 @@ galleryList.addEventListener('click', onClick);
 
 let instance;
 
-
 function onClick(evt) {
   
     evt.preventDefault();
-    document.addEventListener('keydown', closeModal);
+
     if (!evt.target.classList.contains('gallery__image')) {
         return;
     }
   
-    instance = basicLightbox.create(`
-    <img src="${evt.target.dataset.source}">
-`)
+  instance = basicLightbox.create(`<img src="${evt.target.dataset.source}">`,
+    {
+      onShow: instance => {
+        window.addEventListener('keydown', closeModal);
+      },
+       onClose: instance => {
+      window.removeEventListener('keydown', closeModal);
+    },
+    })
     
    instance.show();
    
@@ -50,3 +55,37 @@ function closeModal(evt) {
     }
 
 }
+
+
+
+
+
+
+
+
+
+// function onClick(evt) {
+  
+//     evt.preventDefault();
+//     document.addEventListener('keydown', closeModal);
+//     if (!evt.target.classList.contains('gallery__image')) {
+//         return;
+//     }
+  
+//     instance = basicLightbox.create(`
+//     <img src="${evt.target.dataset.source}">
+// `)
+    
+//    instance.show();
+   
+// }
+
+// function closeModal(evt) {
+  
+//     if (evt.code === 'Escape') {
+   
+//       instance.close();
+
+//     }
+
+// }
